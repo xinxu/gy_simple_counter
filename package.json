@@ -1,0 +1,11 @@
+{
+  "name": "gy_simple_counter",
+  "version": "1.0.0",
+  "description": "This is a simple counter powered by gy",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint"
+  },
+  "author": "Xin Xu",
+  "license": "ISC"
+}
