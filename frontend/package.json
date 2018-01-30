@@ -6,6 +6,10 @@
   "scripts": {
     "test": "npm run lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xinxu/gy_simple_counter"
+  },
   "author": "Xin Xu",
   "license": "ISC",
   "devDependencies": {
