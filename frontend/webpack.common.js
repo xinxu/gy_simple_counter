@@ -4,7 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     resolve: {
-        modules: [path.resolve(__dirname, "src"), "node_modules"]
+        alias: {
+            Assets: path.resolve(__dirname, 'src/assets'),
+            Styles: path.resolve(__dirname, 'src/styles'),
+            Components: path.resolve(__dirname, 'src/components'),
+        }
     },
     entry: {
         app: './src/index.js'

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Container from 'components/container';
+import Counter from 'Components/counter';
 
 ReactDOM.render(
-    <Container />,
+    <Counter />,
     document.getElementById('root')
 );
