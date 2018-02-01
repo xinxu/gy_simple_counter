@@ -28,7 +28,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            template: "./src/index.ejs",
+            template: "./src/assets/index.ejs",
             inject: 'body',
         })
     ]
