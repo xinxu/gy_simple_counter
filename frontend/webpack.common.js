@@ -1,26 +1,14 @@
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const path = require("path");
-const publicPath = '/dist/build/';
 
 module.exports = {
     entry: {
-        main: './src/index.js'
+        app: './src/index.js'
     },
     output: {
-        path: path.join(__dirname, publicPath),
-        filename: "[name].js",
-    //    publicPath: publicPath,
-    },
-    devServer: {
-        port: 3000,
-        host: 'localhost',
-        historyApiFallback: true,
-        noInfo: false,
-        stats: 'minimal',
-        publicPath: publicPath,
-        contentBase: path.join(__dirname, publicPath),
-        hot: true
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
@@ -38,6 +26,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: "./src/index.ejs",
             inject: 'body',
