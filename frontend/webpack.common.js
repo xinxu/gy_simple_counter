@@ -3,6 +3,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    resolve: {
+        modules: [path.resolve(__dirname, "src"), "node_modules"]
+    },
     entry: {
         app: './src/index.js'
     },
