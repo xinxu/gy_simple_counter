@@ -1,11 +1,11 @@
 @import './global.css';
 
-.container {
+.app {
 	margin-top: 100px;
 	text-align: center;
 }
 
-.start {
+/* .start {
 	display: block;
 	font-size: 20px;
 	color: #ad4c1d;
@@ -17,3 +17,6 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+.connectButton {
+	display: block;
+} */
