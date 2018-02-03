@@ -1,0 +1,15 @@
+{% load render_bundle from webpack_loader %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>A Simple Counter</title>
+        {% render_bundle 'app' 'css' %}
+    </head>
+    <body>
+        <div id='root'></div>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        {% render_bundle 'app' 'js' %}
+    </body>
+</html>

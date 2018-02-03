@@ -1,6 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
     resolve: {
@@ -15,7 +16,7 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'static/dist'),
     },
     module: {
         rules: [
@@ -33,7 +34,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['static/dist']),
+        new BundleTracker({filename: 'static/webpack-stats.json'}),
         new HtmlWebpackPlugin({
             template: "./src/assets/index.ejs",
             inject: 'body',

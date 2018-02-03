@@ -5,17 +5,37 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = merge(common, {
     externals: {
-        'react': 'react',
-        'react-dom': 'ReactDOM'
+        react: {
+            root: 'React',
+            commonjs2: 'react',
+            commonjs: 'react',
+            amd: 'react',
+            umd: 'react'
+        },
+        'react-dom': {
+            root: 'ReactDOM',
+            commonjs2: 'react-dom',
+            commonjs: 'react-dom',
+            amd: 'react-dom',
+            umd: 'react-dom'
+        }
+    },
+    output: {
+        libraryTarget: 'umd',
+        publicPath: '/static/dist/'
     },
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "css-loader"
-                })
+                loader: ExtractTextPlugin.extract(
+                    {
+                        'fallback': 'style-loader',
+                        use:[
+                            'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                        ]
+                    }
+                )
             }
         ]
     },
@@ -25,6 +45,9 @@ module.exports = merge(common, {
             debug: false
         }),
         new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin("styles.css")
+        new ExtractTextPlugin({
+            filename: 'app.css',
+            allChunks: true
+        })
     ]
 });
