@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = merge(common, {
     externals: {
-        react: {
+        'react': {
             root: 'React',
             commonjs2: 'react',
             commonjs: 'react',
@@ -18,7 +18,9 @@ module.exports = merge(common, {
             commonjs: 'react-dom',
             amd: 'react-dom',
             umd: 'react-dom'
-        }
+        },
+        'redux': 'Redux',
+        'react-redux': 'ReactRedux',
     },
     output: {
         libraryTarget: 'umd',

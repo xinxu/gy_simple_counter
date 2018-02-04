@@ -5,8 +5,8 @@ import styles from '../styles/app.css'
 
 const ConnectionView = ({text}) => {
     return (
-        <div>
-            <label>{text}</label>
+        <div styleName='connection'>
+            <label>状态：{text}</label>
         </div>
     )
 }

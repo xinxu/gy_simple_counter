@@ -6,7 +6,7 @@ import styles from '../styles/app.css'
 
 const CounterView = ({value}) => {
     return (
-        <div>{value}</div>
+        <div styleName='counter'>{value}</div>
     )
 }
 
@@ -14,4 +14,4 @@ CounterView.propTypes = {
     value: PropTypes.string.isRequired,
 }
 
-export default CSSModules(CounterView, styles);
+export default CSSModules(CounterView, styles)
