@@ -46,14 +46,15 @@ django+channels
 5. django 2.0.2
 6. channels 2.0.0
 
-## 搭建环境
-
-`pip install -r ./backend/requirements.txt`
-
-或者手动安装
+## 搭建及运行
+#### 搭建
 
 ```
-pip install django
-pip install channels
-pip install django-webpack-loader
+pip install -r ./backend/requirements.txt
+cd ./frontend
+npm install
 ```
+
+#### 运行
+`./run_server.sh`
+
