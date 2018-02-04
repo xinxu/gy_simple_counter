@@ -48,7 +48,7 @@ django+channels
 
 ## 搭建环境
 
-pip install -r ./backend/requirements.txt
+`pip install -r ./backend/requirements.txt`
 
 或者手动安装
 
