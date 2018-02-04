@@ -16,16 +16,16 @@ webpack+react+redux
 
 #### 几个关键点
 
-1. 使用react-css-modules集成css
-2. webpack配置文件进行了开发/生产环境分离
-3. 对websocket的处理使用redux-websocket-bridge插件
+1. 使用react-css-modules集成css。
+2. webpack配置文件进行了开发/生产环境分离。
+3. 对websocket的处理使用redux-websocket-bridge插件。
 
 #### babel配置
 
 ```
 {
 	"presets": ["react", "env"],
-    "plugins": ["transform-object-rest-spread"]
+	"plugins": ["transform-object-rest-spread"]
 }
 ```
 
@@ -35,8 +35,8 @@ django+channels
 
 #### 几个关键点
 
-1. 使用asyncio来调度计时器
-2. 使用webpack_loader简化模版使用webpack bundle的操作
+1. 使用asyncio来调度计时器。
+2. 引入了webpack_loader，以方便在模版语言中使用webpack bundle。
 
 ## 技术栈版本
 1. webpack 3.10.0
@@ -47,6 +47,11 @@ django+channels
 6. channels 2.0.0
 
 ## 搭建环境
+
+pip install -r ./backend/requirements.txt
+
+或者手动安装
+
 ```
 pip install django
 pip install channels
