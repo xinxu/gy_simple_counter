@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
-import styles from 'Styles/app.css'
+import styles from '../styles/app.css'
 
-const ConnectionView = ({text, showButton, onConnectClick}) => {
-    if (showButton) {
-        return (
-            <div>
-                <label>{text}</label>
-                <button onClick={onConnectClick}>连接</button>
-            </div>
-        )
-    }
+const ConnectionView = ({text}) => {
     return (
         <div>
             <label>{text}</label>
@@ -19,10 +11,8 @@ const ConnectionView = ({text, showButton, onConnectClick}) => {
     )
 }
 
-ConnectionView.PropTypes = {
+ConnectionView.propTypes = {
     text: PropTypes.string.isRequired,
-    showButton: PropTypes.bool.isRequired,
-    onConnectClick: PropTypes.func.isRequired
 }
 
 export default CSSModules(ConnectionView, styles);

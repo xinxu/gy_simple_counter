@@ -19,26 +19,25 @@ export function connectServerFailed() {
 }
 
 export function startCounter() {
+    console.log("start")
     return {
-        type: actionTypes.START_COUNTER
+        type: 'CLIENT/START',
+        meta: { send: true }
     };
 }
 
 export function pauseCounter() {
+    console.log("pause")
     return {
-        type: actionTypes.PAUSE_COUNTER
+        type: 'CLIENT/PAUSE',
+        meta: { send: true }
     };
 }
 
 export function resetCounter() {
+    console.log("reset")
     return {
-        type: actionTypes.RESET_COUNTER
+        type: 'CLIENT/RESET',
+        meta: { send: true }
     };
-}
-
-export function updateNumber(v) {
-    return {
-        type: actionTypes.UPDATE_NUMBER,
-        value: v
-    }
 }

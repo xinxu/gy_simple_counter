@@ -142,9 +142,10 @@ WEBPACK_LOADER = {
 ASGI_APPLICATION = "backend.routing.application"
 
 CHANNEL_LAYERS = {
-        "default": {
-            "BACKEND": "asgiref.inmemory.ChannelLayer",
-            "ROUTING": "backend.routing.channel_routing",
-
-            },
-        }
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+    },
+}

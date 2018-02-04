@@ -4,13 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
-    resolve: {
-        alias: {
-            Assets: path.resolve(__dirname, 'src/assets'),
-            Styles: path.resolve(__dirname, 'src/styles'),
-            Components: path.resolve(__dirname, 'src/components'),
-        }
-    },
+    // resolve: {
+    //     alias: {
+    //         Assets: path.resolve(__dirname, 'src/assets'),
+    //         Styles: path.resolve(__dirname, 'src/styles'),
+    //         Components: path.resolve(__dirname, 'src/components'),
+    //     }
+    // },
     entry: {
         app: './src/index.js'
     },

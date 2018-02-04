@@ -1,40 +1,21 @@
 import { connect } from 'react-redux'
-import { ConnectionView } from '../components/ConnectionView'
-import { ConnectionStatus } from '../constants'
-import { connectServer } from '../actions'
+import ConnectionView from '../components/ConnectionView'
 
-const statusToText = status => {
-    switch (status) {
-        case ConnectionStatus.CONNECTED:
-            return '已连接'
-        case ConnectionStatus.CONNECTING:
-            return '连接中...'
-        case ConnectionStatus.NOT_CONNECTED:
-            return '未连接'
-        default:
-            return ''
+const statusToText = connected => {
+    if (connected) {
+        return '已连接'
     }
+    return '未连接'
 }
 
 const mapStateToProps = (state) => {
     return {
-        text: statusToText(state.connectionStatus),
-        showButton: state.connectionStatus == ConnectionStatus.NOT_CONNECTED
+        text: statusToText(state.connected)
     }
 }
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onConnectClick: () => {
-            dispatch(connectServer())
-        }
-    }
-}
-
 
 const Connection = connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(ConnectionView)
 
 export default Connection
