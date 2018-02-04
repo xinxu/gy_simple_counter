@@ -28,7 +28,7 @@ function counterApp(state = initialState, action) {
         case 'SERVER/PAUSED':
             return { ...state, counterStatus: CounterStatus.PAUSED, connected: true };
         case 'SERVER/RESETED':
-            return { ...state, counterStatus: CounterStatus.NOT_STARTED, connected: true };
+            return { ...state, ...action.payload, counterStatus: CounterStatus.NOT_STARTED, connected: true };
         default:
             return state
     }

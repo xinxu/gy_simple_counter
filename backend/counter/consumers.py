@@ -22,17 +22,21 @@ class CounterConsumer(JsonWebsocketConsumer):
             self._sendType("SERVER/PAUSED")
         if content["type"] == "CLIENT/RESET":
             self.status = 0
-            self._sendType("SERVER/RESETED")
+            self.count = 0
+            self._sendType("SERVER/RESETED", True)
 
     def disconnect(self):
         self.loop.stop()
 
-    def _sendType(self, t):
-        self.send_json(
-            {
-                "type": t,
+    def _sendType(self, t, update_count=False):
+        data = {
+            "type": t,
+        }
+        if update_count:
+            data["payload"] = {
+                "counterNumber": self.count
             }
-        )
+        self.send_json(data)
 
     def _run_tick_loop(self):
         def start_loop(loop):
@@ -47,14 +51,7 @@ class CounterConsumer(JsonWebsocketConsumer):
     async def _tick(self):
         while True:
             if self.status == 1:
-                self.send_json(
-                    {
-                        "type": "SERVER/UPDATE",
-                        "payload": {
-                            "counterNumber": self.count
-                        }
-                    }
-                )
+                self._sendType("SERVER/UPDATE", True)
             await asyncio.sleep(1)
             if self.status != 0:
                 self.count += 1
