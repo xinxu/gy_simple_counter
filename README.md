@@ -9,21 +9,46 @@
 使用Django搭建后台服务，建立一个socket服务器，在首次跟前端连接成功后每秒执行一次告知前台进行计数的推送。
 
 ## 解决方案
-### 技术栈
-后端：django+channels
 
-前端：react+redux
-### 搭建环境
+### 前端部分
+
+webpack+react+redux
+
+#### 几个关键点
+
+1. 使用react-css-modules集成css
+2. webpack配置文件进行了开发/生产环境分离
+3. 对websocket的处理使用redux-websocket-bridge插件
+
+#### babel配置
+
+```
+{
+	"presets": ["react", "env"],
+    "plugins": ["transform-object-rest-spread"]
+}
+```
+
+### 后端部分
+
+django+channels
+
+#### 几个关键点
+
+1. 使用asyncio来调度计时器
+2. 使用webpack_loader简化模版使用webpack bundle的操作
+
+## 技术栈版本
+1. webpack 3.10.0
+2. react 16.2.0
+3. redux 3.7.2
+4. python 3.6.1
+5. django 2.0.2
+6. channels 2.0.0
+
+## 搭建环境
 ```
 pip install django
 pip install channels
 pip install django-webpack-loader
 ```
-### channels核心概念
-1. 把http和websockets包成了更大的抽象ASGI
-2. Scope和Event概念抽象了底层的http或者websockets
-3. channels把新连接通过routing table映射到consumer上面
-4. consumer是独立线程的，可以运行blocking操作
-5. consumer有异步版本AsyncConsumer
-6. 支持跨进程
-7. 支持django多数feature
