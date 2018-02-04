@@ -10,7 +10,6 @@ const initialState = {
 }
 
 function counterApp(state = initialState, action) {
-    console.log(action)
     switch (action.type) {
         case `@@websocket/${OPEN}`:
             return { ...state, connected: true}
@@ -21,7 +20,6 @@ function counterApp(state = initialState, action) {
             if (state.counterStatus != CounterStatus.RUNNING) {
                 return state
             }
-            console.log(action.payload)
             return { ...state, ...action.payload, connected: true };
         case 'SERVER/STARTED':
             return { ...state, counterStatus: CounterStatus.RUNNING, connected: true };

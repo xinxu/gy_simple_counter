@@ -19,7 +19,6 @@ export function connectServerFailed() {
 }
 
 export function startCounter() {
-    console.log("start")
     return {
         type: 'CLIENT/START',
         meta: { send: true }
@@ -27,7 +26,6 @@ export function startCounter() {
 }
 
 export function pauseCounter() {
-    console.log("pause")
     return {
         type: 'CLIENT/PAUSE',
         meta: { send: true }
@@ -35,7 +33,6 @@ export function pauseCounter() {
 }
 
 export function resetCounter() {
-    console.log("reset")
     return {
         type: 'CLIENT/RESET',
         meta: { send: true }
